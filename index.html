@@ -36,9 +36,9 @@
     function enviarFormulario(lat, lon) {
       const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLScbVVk_FY62OpOkRmSWScnAnAP-ONBwa9lgP4Ysd4HefV909g/formResponse";
       const formData = new FormData();
-      // IMPORTANTE: Reemplazar los entry IDs con los correctos según el formulario real
-      formData.append("entry.1213991344", lat);
-      formData.append("entry.1802923441", lon);
+      // Reemplazados con los entry correctos
+      formData.append("entry.943311442", lat);
+      formData.append("entry.373455167", lon);
 
       fetch(formUrl, {
         method: "POST",
