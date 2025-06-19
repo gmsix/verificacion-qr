@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificación de Ubicación</title>
+</head>
+<body>
+  <h2>Verificando tu ubicación...</h2>
+  <p id="status">Solicitando permiso...</p>
+  <p id="coords"></p>
+
+  <script>
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const lat = position.coords.latitude.toFixed(6);
+        const lon = position.coords.longitude.toFixed(6);
+        document.getElementById("status").textContent = "Ubicación detectada con éxito:";
+        document.getElementById("coords").textContent = `Latitud: ${lat}, Longitud: ${lon}`;
+      }, function(error) {
+        document.getElementById("status").textContent = "No se pudo obtener la ubicación.";
+        document.getElementById("coords").textContent = error.message;
+      });
+    } else {
+      document.getElementById("status").textContent = "Tu navegador no soporta geolocalización.";
+    }
+  </script>
+</body>
+</html>
